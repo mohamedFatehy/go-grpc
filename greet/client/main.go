@@ -20,4 +20,5 @@ func main() {
 
 	client := pb.NewGreetServiceClient(conn)
 	doGreet(client)
+	doGreetManyTimes(client)
 }
