@@ -4,6 +4,7 @@ import (
 	"fmt"
 	pb "github.com/mohamedFatehy/go-grpc/greet/proto"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials"
 	"log"
 	"net"
 )
@@ -24,7 +25,23 @@ func main() {
 
 	fmt.Printf("listening on server: %v \n", address)
 
-	s := grpc.NewServer()
+	var opts []grpc.ServerOption
+	tls := true
+
+	if tls {
+		certFile := "ssl/server.crt"
+		keyFile := "ssl/server.pem"
+		creds, err := credentials.NewServerTLSFromFile(certFile, keyFile)
+
+		if err != nil {
+			fmt.Printf("Invalid server credentials: %v\n", err)
+		}
+
+		opts = append(opts, grpc.Creds(creds))
+
+	}
+
+	s := grpc.NewServer(opts...)
 	pb.RegisterGreetServiceServer(s, &Server{})
 
 	if err = s.Serve(lis); err != nil {
