@@ -22,4 +22,5 @@ func main() {
 	doGreet(client)
 	doGreetManyTimes(client)
 	longGreet(client)
+	doGreetEveryone(client)
 }
