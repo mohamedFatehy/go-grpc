@@ -19,11 +19,11 @@ func main() {
 	defer conn.Close()
 
 	client := pb.NewCalculatorServiceClient(conn)
-	getSum(client)     // unary connection
-	getPrime(client)   // server streaming
-	doAvg(client)      // client streaming
-	doMax(client)      // bi-direction streaming
-	doSqrt(client, 16) // simple unary connection
-	doSqrt(client, -2) // // simple unary with handling Errors
+	getSum(client) // unary connection
+	//getPrime(client)   // server streaming
+	//doAvg(client)      // client streaming
+	//doMax(client)      // bi-direction streaming
+	//doSqrt(client, 16) // simple unary connection
+	//doSqrt(client, -2) // // simple unary with handling Errors
 
 }
