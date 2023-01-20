@@ -5,6 +5,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 	"log"
+	"time"
 )
 
 const address = "localhost:8888"
@@ -19,8 +20,11 @@ func main() {
 	defer conn.Close()
 
 	client := pb.NewGreetServiceClient(conn)
-	doGreet(client)
-	doGreetManyTimes(client)
-	longGreet(client)
-	doGreetEveryone(client)
+	//doGreet(client)
+	//doGreetManyTimes(client)
+	//longGreet(client)
+	//doGreetEveryone(client)
+	//doGreetWithDeadline(client, 5*time.Second)
+	doGreetWithDeadline(client, 1*time.Second)
+
 }
