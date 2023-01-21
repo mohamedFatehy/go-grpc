@@ -8,7 +8,7 @@ import (
 
 func updateBlog(client pb.BlogServiceClient, id string) {
 
-	log.Printf("<--updateBlog Function has been invoked->>")
+	log.Printf("<--updateBlog Function has been invoked-->")
 
 	_, err := client.UpdateBlog(context.Background(), &pb.Blog{
 		Id:       id,
