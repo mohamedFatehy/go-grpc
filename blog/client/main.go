@@ -24,4 +24,5 @@ func main() {
 	updateBlog(client, blogId)
 	readBlog(client, blogId)
 	listBlog(client)
+	deleteBlog(client, blogId)
 }
